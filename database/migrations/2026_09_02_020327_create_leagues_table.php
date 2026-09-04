@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('country');
-            $table->integer('api_id');
+            $table->integer('api_id')->unique();
             $table->timestamps();
         });
     }
