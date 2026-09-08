@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('clubs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('league_id')->constrained();
+            $table->string('name');
+            $table->integer('api_id')->unique();
+            $table->string('logo_url')->nullable();
             $table->timestamps();
         });
     }
