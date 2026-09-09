@@ -17,7 +17,11 @@ return new class extends Migration
             $table->foreignId('league_id')->constrained();
             $table->foreignId('home_club_id')->constrained('clubs');
             $table->foreignId('away_club_id')->constrained('clubs');
+            $table->dateTime('match_date');
             $table->enum('match_status', array_column(MatchStatus::cases(), 'value'));
+            $table->integer('home_score')->nullable();
+            $table->integer('away_score')->nullable();
+            $table->integer('api_id')->unique();
             $table->timestamps();
         });
     }
