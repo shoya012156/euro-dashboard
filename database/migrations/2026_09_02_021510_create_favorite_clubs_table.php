@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('favorite_clubs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('club_id')->constrained();
             $table->timestamps();
+
+            $table->unique(['user_id', 'club_id']);
         });
     }
 
