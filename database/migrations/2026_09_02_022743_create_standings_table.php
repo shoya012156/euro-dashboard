@@ -13,6 +13,17 @@ return new class extends Migration
     {
         Schema::create('standings', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('league_id')->constrained();
+            $table->foreignId('club_id')->constrained();
+            $table->integer('position');
+            $table->integer('played_games');
+            $table->integer('won');
+            $table->integer('draw');
+            $table->integer('lost');
+            $table->integer('points');
+            $table->integer('goals_for');
+            $table->integer('goals_against');
+            $table->integer('goals_difference');
             $table->timestamps();
         });
     }
