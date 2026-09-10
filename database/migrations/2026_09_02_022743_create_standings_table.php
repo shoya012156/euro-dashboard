@@ -23,7 +23,7 @@ return new class extends Migration
             $table->integer('points');
             $table->integer('goals_for');
             $table->integer('goals_against');
-            $table->integer('goals_difference');
+            $table->integer('goal_difference');
             $table->timestamps();
         });
     }
