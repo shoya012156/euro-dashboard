@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('players', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->foreignId('club_id')->constrained();
+            $table->integer('api_id')->unique();
             $table->timestamps();
         });
     }
