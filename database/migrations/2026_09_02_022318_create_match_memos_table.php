@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('match_memos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('match_id')->constrained();
+            $table->text('memo');
             $table->timestamps();
+
+            $table->unique(['user_id', 'match_id']);
         });
     }
 
