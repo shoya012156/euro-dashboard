@@ -13,9 +13,7 @@ class LeagueSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('leagues')->delete();
-        DB::table('leagues')->insert([
-            [
+        $leagues = [[
                 'name' => 'Premier League',
                 'country' => 'England',
                 'api_id' => 2021,
@@ -45,6 +43,13 @@ class LeagueSeeder extends Seeder
                 'country' => 'Netherlands',
                 'api_id' => 2003,
             ],
-        ]);
+            ];
+        $timestampColumns = [
+            'created_at' => now(),
+            'updated_at' => now()
+        ];
+        $insert = array_map(fn($v) => array_merge($v, $timestampColumns), $leagues);
+        DB::table('leagues')->delete();
+        DB::table('leagues')->insert($insert);
     }
 }
