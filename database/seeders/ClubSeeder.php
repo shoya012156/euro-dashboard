@@ -39,7 +39,7 @@ class ClubSeeder extends Seeder
             ],
             [
                 'league_id' => $leagueIds['Premier League'],
-                'name' => 'Brighton&Hove Albion FC',
+                'name' => 'Brighton & Hove Albion FC',
                 'api_id' => 397,
             ],
             [
@@ -99,7 +99,7 @@ class ClubSeeder extends Seeder
             ],
             [
                 'league_id' => $leagueIds['Bundesliga'],
-                'name' => '1.FSV Mainz 05',
+                'name' => '1. FSV Mainz 05',
                 'api_id' => 15
             ],
             [
@@ -139,7 +139,7 @@ class ClubSeeder extends Seeder
             ],
             [
                 'league_id' => $leagueIds['Ligue 1'],
-                'name' => 'Le Harve AC',
+                'name' => 'Le Havre AC',
                 'api_id' => 533
             ],
             [
