@@ -180,7 +180,7 @@ class PlayerSeeder extends Seeder
 
         $insert = array_map(fn($v) => array_merge($v, $timestampColumns), $players);
 
-        DB::table('players')->delete();
+
         DB::table('players')->insert($insert);
     }
 }

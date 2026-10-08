@@ -177,7 +177,7 @@ class ClubSeeder extends Seeder
         // insert()は1クエリで済むため、Eloquentのcreate()を29回呼ぶより効率的
         $insert = array_map(fn($v) => array_merge($v, $timestampColumns), $clubs);
 
-        DB::table('clubs')->delete();
+        
         DB::table('clubs')->insert($insert);
     }
 }

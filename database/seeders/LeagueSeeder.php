@@ -49,7 +49,8 @@ class LeagueSeeder extends Seeder
             'updated_at' => now()
         ];
         $insert = array_map(fn($v) => array_merge($v, $timestampColumns), $leagues);
-        DB::table('leagues')->delete();
+
+        
         DB::table('leagues')->insert($insert);
     }
 }

@@ -127,7 +127,7 @@ class MatchSeeder extends Seeder
         ];
 
         $insert = array_map(fn($v) => array_merge($v, $timestampColumns), $matches);
-        DB::table('matches')->delete();
+
         DB::table('matches')->insert($insert);
     }
 }

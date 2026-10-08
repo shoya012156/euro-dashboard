@@ -130,7 +130,7 @@ class StandingSeeder extends Seeder
             ];
         }
 
-        DB::table('standings')->delete();
+
         DB::table('standings')->insert($result);
     }
 }
