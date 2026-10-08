@@ -14,6 +14,7 @@ class MatchSeeder extends Seeder
      */
     public function run(): void
     {
+        // seeder再実行のたびleagues,clubs.idが変動するため、nameをキーに動的に解決する
         $leagueIds = DB::table('leagues')->pluck('id', 'name')->toArray();
 
         $clubIds = DB::table('clubs')->pluck('id', 'name')->toArray();
@@ -126,6 +127,7 @@ class MatchSeeder extends Seeder
             'updated_at' => now()
         ];
 
+        // insert()は1クエリで済むため、Eloquentのcreate()を呼ぶより効率的
         $insert = array_map(fn($v) => array_merge($v, $timestampColumns), $matches);
 
         DB::table('matches')->insert($insert);

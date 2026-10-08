@@ -50,7 +50,7 @@ class LeagueSeeder extends Seeder
         ];
         $insert = array_map(fn($v) => array_merge($v, $timestampColumns), $leagues);
 
-        
+        // insert()は1クエリで済むため、Eloquentのcreate()を呼ぶより効率的
         DB::table('leagues')->insert($insert);
     }
 }

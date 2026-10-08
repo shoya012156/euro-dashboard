@@ -13,6 +13,7 @@ class PlayerSeeder extends Seeder
      */
     public function run(): void
     {
+        // seeder再実行のたびclubs.idが変動するため、nameをキーに動的に解決する
         $clubsIds = DB::table('clubs')->pluck('id', 'name')->toArray();
 
         $players = [
@@ -178,6 +179,7 @@ class PlayerSeeder extends Seeder
             'updated_at' => now()
         ];
 
+        // insert()は1クエリで済むため、Eloquentのcreate()を呼ぶより効率的
         $insert = array_map(fn($v) => array_merge($v, $timestampColumns), $players);
 
 

@@ -13,6 +13,7 @@ class StandingSeeder extends Seeder
      */
     public function run(): void
     {
+        // seeder再実行のたびleagues,clubs.idが変動するため、nameをキーに動的に解決する
         $leagueIds = DB::table('leagues')->pluck('id', 'name')->toArray();
         $clubIds = DB::table('clubs')->pluck('id', 'name')->toArray();
         $premierClubs = [
