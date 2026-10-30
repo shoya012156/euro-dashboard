@@ -14,6 +14,9 @@ RUN composer install --no-dev --optimize-autoloader \
     && npm ci && npm run build \
     && chown -R www-data:www-data storage bootstrap/cache
 
+# CVE-2026-115560 の暫定対策: セッションのアップロード進捗機能を無効にする
+RUN echo "session.upload_progress.enabled = 0" > /usr/local/etc/php/conf.d/99-security.ini
+
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
 ENV APP_ENV=production
 ENV APP_DEBUG=false
