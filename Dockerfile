@@ -17,6 +17,8 @@ RUN composer install --no-dev --optimize-autoloader \
 # CVE-2026-115560 の暫定対策: セッションのアップロード進捗機能を無効にする
 RUN echo "session.upload_progress.enabled = 0" > /usr/local/etc/php/conf.d/99-security.ini
 
+RUN php -v && php -i | grep session.upload_progress.enabled
+
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
 ENV APP_ENV=production
 ENV APP_DEBUG=false
